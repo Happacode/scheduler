@@ -21,6 +21,9 @@ export default function DayListItem(props) {
     if (spots === 2) {
       spotsAvailable = "2 spots remaining";
     }
+    if (spots > 2) {
+      spotsAvailable =  `${spots} spots remaining`;
+    }
     return spotsAvailable;
   }
 
