@@ -23,4 +23,16 @@ export function getInterview(state, interview) {
 
   return {student, interviewer};
   
-}
+};
+
+export function getInterviewersForDay(state, day) {
+
+  const appFind = state.days.find(
+    (days) => days.name === day);
+
+  const interviewersArray = appFind ? appFind.interviewers.map(
+    (id) => state.interviewers[id]) : [];
+
+  return interviewersArray;
+
+};
