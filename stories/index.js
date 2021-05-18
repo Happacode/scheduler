@@ -173,7 +173,10 @@ storiesOf("Appointment", module)
       onCancel={action("onCancel")}
     />
   ))
-  .add("Status", () => (
+  .add("Status Saving", () => (
+    <Status message="Saving"/>
+  ))
+  .add("Status Deleting", () => (
     <Status message="Deleting"/>
   ))
   .add("Error", () => (
