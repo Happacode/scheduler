@@ -1,20 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "components/Appointment/styles.scss";
 import Header from "components/Appointment/header";
 import Show from "components/Appointment/show";
 import Empty from "components/Appointment/empty";
+import Status from "components/Appointment/status";
 import Form from "components/Appointment/form";
 import useVisualMode from "hooks/useVisualMode";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
+const STATUS = "STATUS";
 
 export default function Appointment(props) {
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
+
+  const [message, setMessage] = useState("");
+
+  function save(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer
+    };
+
+    setMessage("Saving...");
+    transition(STATUS);
+
+    props.bookInterview(props.id, interview)
+    .then(() => transition(SHOW));
+  }
 
   return (
   <article className="appointment">
@@ -29,12 +46,19 @@ export default function Appointment(props) {
     {mode === CREATE && (
       <Form 
         name={props.name}
-        interviewers={[]}
+        interviewers={props.interviewers}
         value={props.value}
-        onSave={() => console.log("onSave")}
+        onSave={save}
         onCancel={() => back()}
       />
     )}
+    {mode === STATUS && (
+      <Status
+        message={message}
+      />
+    )
+    
+    }
   </article>
   )
 }
