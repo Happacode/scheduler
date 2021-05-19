@@ -33,6 +33,15 @@ export default function Application(props) {
       .then(res => console.log(res));
   }
 
+  function cancelInterview(id) {
+    const appointment = {
+      ...state.appointments
+    };
+    appointment[id].interview = null;
+    return axios.delete(`/api/appointments/${id}`)
+    .then(res => console.log(res))
+  }
+
   const setDay = day => setState({ ...state, day });
   
   useEffect(() => {
@@ -63,6 +72,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     );
   });
