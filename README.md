@@ -1,13 +1,15 @@
 # Interview Scheduler
 
+Using the latest tools and techniques, we build and test a React application that allows users to book and cancel interviews. We combine a concise API with a WebSocket server to build a realtime experience.
+
 ## Screenshots
 
-!["Screenshot of "]()
-!["Screenshot of "]()
-!["Screenshot of "]()
-!["Screenshot of "]()
-!["Screenshot of "]()
-!["Screenshot of "]()
+!["Screenshot of Index Page"](https://github.com/Happacode/scheduler/blob/master/docs/Scheduler-Index-page.png?raw=true)
+!["Screenshot of Confirm Delete"](https://github.com/Happacode/scheduler/blob/master/docs/Scheduler-Confirm-Delete.png?raw=true)
+!["Screenshot of Empty Spot"](https://github.com/Happacode/scheduler/blob/master/docs/Scheduler-Empty-Spot.png?raw=true)
+!["Screenshot of Create Booking"](https://github.com/Happacode/scheduler/blob/master/docs/Scheduler-Create-Appointment.png?raw=true)
+!["Screenshot of Booking Error"](https://github.com/Happacode/scheduler/blob/master/docs/Scheduler-Booking-Error.png?raw=true)
+!["Screenshot of Scroll Full Page"](https://github.com/Happacode/scheduler/blob/master/docs/Scheduler-Scroll-page.png?raw=true)
 
 ## Dependencies
 
