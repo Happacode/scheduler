@@ -29,7 +29,7 @@ export default function Form(props) {
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
-      {props.error && <p>{props.error}</p>}
+      {props.error && <p style={{ color: 'red' }}>{props.error}</p>}
     </form>
     <InterviewerList interviewers={props.interviewers} value={interviewer} onChange={setInterviewer} />
     </section>

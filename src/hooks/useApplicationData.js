@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
@@ -11,7 +11,7 @@ export default function useApplicationData() {
   });
 
   function updateSpots(status) {
-    // number of spots are in day object
+    
     const daySpots = state.day
     state.days.map((day) => {
       if (day.name === daySpots && status === "book") {
@@ -20,6 +20,7 @@ export default function useApplicationData() {
       else if (day.name === daySpots && status === "cancel") {
         day.spots = day.spots + 1;
       }
+      return null;
     })
   }
 
