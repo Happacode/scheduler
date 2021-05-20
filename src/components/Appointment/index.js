@@ -26,13 +26,26 @@ export default function Appointment(props) {
   );
 
   const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   function save(name, interviewer) {
     const interview = {
       student: name,
       interviewer
     };
+    
+    if (interview.student === "") {
+      setError("Please type student name above.")
+      return;
+    }
+    
+    if (interview.interviewer === null) {
+      setError("Please select an interviewer from the list")
+      return;
+    }
 
+    setError("");
+    
     setMessage("Saving");
     transition(SAVING);
 
@@ -71,6 +84,7 @@ export default function Appointment(props) {
         interviewers={props.interviewers}
         value={props.value}
         onSave={save}
+        error={error}
         onCancel={() => back()}
       />
     )}
@@ -81,6 +95,7 @@ export default function Appointment(props) {
         interviewers={props.interviewers}
         value={props.value}
         onSave={save}
+        error={error}
         onCancel={() => back()}
       />
     )}
